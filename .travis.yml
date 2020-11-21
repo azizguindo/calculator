@@ -1,6 +1,6 @@
 language: java
 sudo: true
-jdk: oraclejdk9
+jdk: oraclejdk11
 install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
