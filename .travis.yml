@@ -3,6 +3,10 @@ sudo: true
 jdk: oraclejdk11
 install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  
+env:
+  global:
+  - secure: "x7WXLepmqVEl70NXOlCa68xPBkBFw0Xm4HPEL6wpyTBYVlcNRa/Eecc10thuIWYLXvUlyeUEiGLdFVaMF2CXBIqsHffyZUuKPOc9fzVqHqERD240kjaLDhp1HIU4+vtBkvgt9S3yJYfvlBizAqAROolke0anfIC/ZtFCdCPJ9NmVu+2fGdwaNujS4dkKX3jCaAWtYujJtlLoxGvd1GxpMmFmFjHB3/BX6QlWPUMIBjOxNGMRGhJNihsbHf1CTcbMRNdzq6rsIUpqJjZWRYiy2ZMS6kZ1kBszrVA0Hux9+25vHhsb3XKZXkTbQ8p+xj3pm/HqhcELVmrM+RzwHrJ2O9YJRGrbo4XGryw2vjN3GqR7HbS5cpe9aB3M5sG7rqehtz61OCD3Ck0OpQX8B8eoI7oXWRergz4RmDKLOR01ceNUBsxLqCPk/R49X6ruClRnpWmy0K1mAwvokYHIN7u4XcD0PG0kJ0K5Ct7GW87xS2CDNIhIDX6SjItEZ5EybOwJ5ou78hDqLxcEyy4ruG1d6z5On4s2HX9QiiFXqK4VIFpWRFa7b3/M8X5/BUCd2w2L+KpqsL8xm3FqtENkhQ8Hm0GC5SRhM3l3KMm27zXywgM1teIQRc1lImqSX2Y/1GQgTLtPe3nqOLA84AXIGOG0rJ6LLqGO+KcxrehwAaRLsYg="
 
 after_deploy:
   - echo "deploying finished"
