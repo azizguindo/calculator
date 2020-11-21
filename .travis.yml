@@ -2,15 +2,11 @@ language: java
 sudo: true
 jdk: oraclejdk11
 install:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-  
-addons:
-  sonarcloud:
-    organization: "azizguindo"
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
-script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=azizguindo_calculator -Dsonar.login=${SONAR_TOKEN}
-  
+env:
+  global:
+  secure: ympbyQGgEaAUhDuhdpSLvxIK09uH9zNBUU3c/M/gqKriDDm+PFg7loeMhkoI2Jx/Mj2vPOgv1/bsm2FJY+rRK8b/PIjNtj7Usm/aEjKcgb3GjGKjtF1pRvjzA7hkvPtgBo/eYlbETV7DvMrz/xI/8HBq2jG2uWnmbGW3Sxwhv/HhjfE8JFFjVgUlSR///rcZFilY67wKLJBqF7n9tUMknyGBZKViX+xJ63UUjOCdxlUz9r7sYUMbuxz+/E4cjjd83kVHFFWBLbVgzF49t4E5PU3tdj7/xFQwGx7iYBJLy3nheZwXrw1mft4tSJAOLVAjMgwM1lwH9IiovFMvgTzEdO1LmgnJPq0nZj4papl6tnCIPn83NXJIliJDBkIT1GiIM2WXEkWvuQ1CE8RbRVm1PSU2kXVjPZYSSrQkOipGCFl8YggPpacVl53O5yhtrdWW4aMl16uCI2jpcJ5zJMxXbCZACl3NSQpxrbEG0aTabHxHCoOUq++7H76UQQY6jsAEDd2uGWX1vETcFZjUuOZNqevrXj9hplsC+QVaJ3QsdLRZf+jbVnxcQeqxgoBcOFXIosmHxV4Qvh084VCP1ocyovz27bXAzzQFoAtMQXwyYesYXg9S6X/GJ2HGrL19+S+ymQA3TxH81oBPMORbJopOZM02tjt6xoGER5sdem1BBV4=
+
 after_deploy:
   - echo "deploying finished"
