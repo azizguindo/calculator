@@ -7,12 +7,10 @@ install:
 addons:
   sonarcloud:
     organization: "azizguindo"
-    token:
-      secure: "D/xS+yKb2UDq/es3moGWnd1Q1ozo1QKJ8msOTAx57oN/3mmQINI8yxkgT1uoDxXTZjvodJE7nrEaw1f4U+BMQpxE07OwfVbA2jWG5vtexVXvv7rMWESf1T00XPiEGf3lZztL4IW94E8bFAIeuXDGcZapjtdFYrLTqIX5tAiMN+mk9gISf1YhhkBhZvWg3R06GPeT6AUe1KG1CiIUQmDtqG3R9ydZye5akpFZzAifMVBAz74soFvDVvoype+h1TbceuxfU42jIgt3ytPff+jIz1ko/Y6DyTdT1G1NnxosXkWiC7UqLvq899PbLbNmaIyfliIh/6kQ8Amb7+I2s3XHl6rZVbQouaxwudwjym8zVWMeQEtELJR1wdemd6DpEaKaJ4irYuFZAvqFajQgtotm/hU+ExJXZlWUW7B1ZbyvVVVjzCFy4HPZinFVrtCBqim0c6K2P6uw6pzD19CoJXSHBdNW2VxUz/uzYTgns4Eh8sMRVOB3vGMwO966f0KvRxJKc8F2YaILKCcfz+Yj7ystNfZz5+dbuoePg7dKvYFN7ZW6SrwcgpvtwhcXbBpOP7y2TJMsQp0IvFslXPRqftVuMidl7bkruAz7BIO6PjUiaTjw9+cs2E1vYo2KV+tN42QSYErcl7+IF94tncjMs8wfhgzzpUnV5u7NZm/nqVDJeZc="
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=azizguindo_calculator
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=azizguindo_calculator -Dsonar.login=${SONAR_TOKEN}
   
 after_deploy:
   - echo "deploying finished"
