@@ -4,9 +4,15 @@ jdk: oraclejdk11
 install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
   
-env:
-  global:
-  - secure: "x7WXLepmqVEl70NXOlCa68xPBkBFw0Xm4HPEL6wpyTBYVlcNRa/Eecc10thuIWYLXvUlyeUEiGLdFVaMF2CXBIqsHffyZUuKPOc9fzVqHqERD240kjaLDhp1HIU4+vtBkvgt9S3yJYfvlBizAqAROolke0anfIC/ZtFCdCPJ9NmVu+2fGdwaNujS4dkKX3jCaAWtYujJtlLoxGvd1GxpMmFmFjHB3/BX6QlWPUMIBjOxNGMRGhJNihsbHf1CTcbMRNdzq6rsIUpqJjZWRYiy2ZMS6kZ1kBszrVA0Hux9+25vHhsb3XKZXkTbQ8p+xj3pm/HqhcELVmrM+RzwHrJ2O9YJRGrbo4XGryw2vjN3GqR7HbS5cpe9aB3M5sG7rqehtz61OCD3Ck0OpQX8B8eoI7oXWRergz4RmDKLOR01ceNUBsxLqCPk/R49X6ruClRnpWmy0K1mAwvokYHIN7u4XcD0PG0kJ0K5Ct7GW87xS2CDNIhIDX6SjItEZ5EybOwJ5ou78hDqLxcEyy4ruG1d6z5On4s2HX9QiiFXqK4VIFpWRFa7b3/M8X5/BUCd2w2L+KpqsL8xm3FqtENkhQ8Hm0GC5SRhM3l3KMm27zXywgM1teIQRc1lImqSX2Y/1GQgTLtPe3nqOLA84AXIGOG0rJ6LLqGO+KcxrehwAaRLsYg="
+addons:
+  sonarcloud:
+    organization: "azizguindo"
+    token:
+      secure: "U8gh2UdLfuopDJmv831CYPsbLQb2Ek2rYjtNWwphWRpoT3jl+tGM7kZEzy2GgbnyibYNCEWfIlB8hjbNuwVJRv00F4rqmaSDqmRB4BA/6UksUslLsUWa+KVf+IHFs6xj1sZQE6Y2G+Lcsxs7Ub15u4BB+Jcl48AhtSpmc61QsnVGo0CVSMRAyWTNXXl3GPuDzzXnZTmQ+uSWgqouwJElwV0xf8yNtSO/lhmkQoD1eijYOTDsY0/ai7sPlZCccMWycPRHjZUnCrciQPwtkHoF16rkhyDq2F7vn+9M6VzMiMsh1P2lTFavuDbOz5glmkvjHt82vnBCxipGkUEpwv4H7eWm/7DEZ1OiWuGLKx4ZlGMy5vT1Sr49zu5HiwghMpgJvraZPtmAfFzaaJ5iy6pJEBhG1Hmqi+/lHxnvoU0JxWb71LpfDtgT5rmSV0Wv8D/EaTHv5tXwWLBTyPzg+nhbXvbirzgY1wmsdBmbhXTsNltvKMYVj/VR4a81MtPG+uw9b7Yc7xj6teDKRUzQFz7NVXfdadFwN+Vs6k+JtANsYENgBBA1q1UuCpgjAUyHUBPGp4e9cFFGOFVK0jGFcBPOi07hfC7pD628nWLvmNUFtrGYL1bn3Kqm4xs4NAnSEwcyhZ65PYZ6wxCQ/gFosKskqx2ndtUD0js5+2BWMdQ/OsE=" # encrypted value of your token
 
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=azizguindo_calculator
+  
 after_deploy:
   - echo "deploying finished"
