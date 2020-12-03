@@ -4,7 +4,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import vvcl.spring.calculator.services.CalculatorService;
 
-@RequestMapping(value = "/substractor", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = "/substractor", produces = MediaType.APPLICATION_JSON_VALUE)
 @RestController
 public class SubstractorController {
 

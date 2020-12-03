@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.*;
 class CalculatorApplicationTests {
 
     @Test
-    public void testCalculator() {
+    void testCalculator() {
         when()
                 .get("/adder/current")
                 .then()
