@@ -20,7 +20,8 @@ public class CalculatorService {
     }
 
     public int accumulate(int adder) {
-        return this.num = this.num + adder;
+        this.num += adder;
+        return this.num;
     }
 
     public int substract(int substractor) {
@@ -28,6 +29,7 @@ public class CalculatorService {
     }
 
     public int accumulateS(int substractor) {
-        return this.num = this.num - substractor;
+        this.num -= substractor;
+        return this.num;
     }
 }
