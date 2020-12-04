@@ -17,11 +17,7 @@ public class CalculatorRestSteps {
 
     @Step("get the current number")
     public void givenCurrentNumber() {
-        when()
-                .get("/adder/current")
-                .then()
-                .statusCode(200)
-                .body(equalTo("0"));
+        currentNum = Integer.parseInt(when().get("/adder/current").getBody().asString());
     }
 
     @Step("adding {0}")
@@ -29,9 +25,8 @@ public class CalculatorRestSteps {
         given()
                 .param("num",num)
                 .when()
-                .post("/adder/accumulate")
-                .then()
-                .body(equalTo(String.valueOf(num)));
+                .post("/adder/accumulate");
+        currentNum = currentNum + num;
     }
 
     @Step("got the sum")
@@ -40,6 +35,25 @@ public class CalculatorRestSteps {
                 .get("/adder/current")
                 .then()
                 .statusCode(200)
-                .body(equalTo("5"));
+                .body(equalTo(String.valueOf(currentNum)));
+    }
+
+
+    @Step("substracting {0}")
+    public void whenSubstractNumber(int num) {
+        given()
+                .param("num",num)
+                .when()
+                .post("/substractor/accumulateS");
+        currentNum = currentNum - num;
+    }
+
+    @Step("got the substraction result")
+    public void thenSubstractedUp() {
+        when()
+                .get("/adder/current")
+                .then()
+                .statusCode(200)
+                .body(equalTo(String.valueOf(currentNum)));
     }
 }

@@ -1,6 +1,5 @@
 package vvcl.spring.calculator.services;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
