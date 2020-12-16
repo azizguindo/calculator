@@ -6,6 +6,7 @@ import vvcl.spring.calculator.services.CalculatorService;
 
 @RequestMapping(value = "/adder", produces = MediaType.APPLICATION_JSON_VALUE)
 @RestController
+@CrossOrigin("*")
 public class AdderController {
 
     private CalculatorService calculatorService;

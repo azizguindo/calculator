@@ -1,11 +1,12 @@
 package vvcl.spring.calculator.services;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CalculatorService {
 
-    private int num;
+    private int num ;
 
     public void baseNum(int base) {
         this.num = base;

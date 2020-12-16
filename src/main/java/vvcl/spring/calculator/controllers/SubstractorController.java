@@ -6,6 +6,7 @@ import vvcl.spring.calculator.services.CalculatorService;
 
 @RequestMapping(value = "/substractor", produces = MediaType.APPLICATION_JSON_VALUE)
 @RestController
+@CrossOrigin("*")
 public class SubstractorController {
 
     private CalculatorService calculatorService;
@@ -19,7 +20,7 @@ public class SubstractorController {
         return calculatorService.currentBase();
     }
 
-    @PostMapping("/substract")
+    @PostMapping("/subtract")
     public int substract(@RequestParam int num) {
         return calculatorService.substract(num);
     }
