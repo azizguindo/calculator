@@ -6,7 +6,7 @@ import vvcl.spring.calculator.services.CalculatorService;
 
 @RequestMapping(value = "/substractor", produces = MediaType.APPLICATION_JSON_VALUE)
 @RestController
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 public class SubstractorController {
 
     private CalculatorService calculatorService;
