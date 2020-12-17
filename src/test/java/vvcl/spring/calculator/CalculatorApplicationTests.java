@@ -2,7 +2,6 @@ package vvcl.spring.calculator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
@@ -12,7 +11,7 @@ class CalculatorApplicationTests {
     @Test
     void testCalculator() {
         when()
-                .get("/adder/current")
+                .get("/calculator/current")
                 .then()
                 .statusCode(200)
                 .body(equalTo("0"));
@@ -20,19 +19,19 @@ class CalculatorApplicationTests {
         given()
                 .param("num",5)
                 .when()
-                .post("/adder/add")
+                .post("/calculator/add")
                 .then()
                 .body(equalTo("5"));
 
         given()
                 .param("num",10)
                 .when()
-                .post("/adder/accumulate")
+                .post("/calculator/accumulate")
                 .then()
                 .body(equalTo("10"));
 
         when()
-                .get("/adder/current")
+                .get("/calculator/current")
                 .then()
                 .statusCode(200)
                 .body(equalTo("10"));
@@ -40,7 +39,7 @@ class CalculatorApplicationTests {
         given()
                 .param("num",5)
                 .when()
-                .post("/substractor/accumulateS")
+                .post("/calculator/accumulateS")
                 .then()
                 .body(equalTo("5"));
     }

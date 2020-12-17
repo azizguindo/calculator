@@ -1,20 +1,18 @@
 package vvcl.spring.calculator.stories;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.junit.runner.RunWith;
 import vvcl.spring.calculator.steps.CalculatorRestSteps;
 
-//@RunWith(SerenityRunner.class)
-public class AdderStory {
+
+public class CalculatorStory {
 
     @Steps
     CalculatorRestSteps restSteps;
 
-    @Given("a number +")
+    @Given("a number")
     public void givenANumber() throws Exception{
         restSteps.givenCurrentNumber();
     }
@@ -27,5 +25,16 @@ public class AdderStory {
     @Then("I get a sum of the numbers")
     public void thenIGetTheSum(){
         restSteps.thenSummedUp();
+    }
+
+
+    @When("I submit another number $num to subtract")
+    public void whenISubmitToSubtractWithNumber(int num){
+        restSteps.whenSubtractNumber(num);
+    }
+
+    @Then("I get the subtract result of the numbers")
+    public void thenIGetTheSubtract(){
+        restSteps.thenSubtractedUp();
     }
 }
